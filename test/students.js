@@ -16,13 +16,10 @@ describe("students", function() {
       assert.equal(std.get_slist()['Петров']['cnt'], 5);
     });
 
-    before(function() { std.add_student('Сидоров'); });
-    before(function() { std.add_student('Смирнов'); });
     before(function() { std.add_command(['Сидоров', 'Смирнов']); });
 
     it("Добавляет команду", function() {
-      assert.equal(std.get_clist()[0][0], 'Сидоров');
-      assert.equal(std.get_clist()[0].length, 2);
+      assert.deepEqual(std.get_clist()[0], ['Сидоров', 'Смирнов']);
     });
 
 });

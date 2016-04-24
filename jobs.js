@@ -9,6 +9,7 @@ var sorts = function(){
 
   return {
     do_sort: function(mentors, lst) {
+
         tmp_array = lst.clone();
         cnt_students = lst.get_slist()[mentors[0]].length;
         cnt_stop = Math.ceil(cnt_students/mentors.length);
@@ -19,16 +20,17 @@ var sorts = function(){
         }
 
         function forAllMentors(m, cnt, ar){
+
             var ls = tmp_array.get_slist()[m][cnt_current];
 
             if (ls) {
-              var lm = tmp_array.get_mlist(ls)[cnt_current];
-
+              var lm = tmp_array.get_mlist()[ls][cnt];
               if (!sort_array.hasOwnProperty(lm)) sort_array[lm] = [];
 
               if (sort_array[lm].length < cnt_stop){
                 sort_array[lm].push(ls);
                 std_current = ls;
+
                 mentors.forEach(nullStudent);
               }
             }

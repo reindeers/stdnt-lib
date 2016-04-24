@@ -23,8 +23,6 @@ describe("sd", function() {
       sd_s.add_rating('Петров', t, 5);
       sd_s.add_command(['Сидоров', 'Смирнов']);
       ds_s = sd_s.toJson();
-      console.log(sd_s.get_slist());
-      console.log(sd_s.fromJson(ds_s).get_slist());
     });
 
 
@@ -33,7 +31,7 @@ describe("sd", function() {
     });
 
     it("Десериализация студентов", function() {
-        assert.deepEqual(sd_s.fromJson(ds_s).get_slist(), sd_s);/*TODO*/
+        assert.equal(sd_s.fromJson(ds_s).get_slist().toString(), sd_s.get_slist().toString());
         assert.deepEqual(sd_s.fromJson(ds_s).get_clist(), [['Сидоров', 'Смирнов']]);
     });
 
@@ -44,7 +42,7 @@ describe("sd", function() {
 
 
     it("Сериализация менторов", function() {
-        assert.equal(sd_m.toJson(), '["ментор_1","ментор_2","ментор_3"]');
+        assert.deepEqual(sd_m.toJson(), '["ментор_1","ментор_2","ментор_3"]');
     });
 
     it("Десериализация менторов", function() {
@@ -64,7 +62,8 @@ describe("sd", function() {
     });
 
     it("Десериализация списков", function() {
-        assert.deepEqual(sd_l.fromJson(ds_l), sd_l);
+        assert.deepEqual(sd_l.fromJson(ds_l).get_slist(), sd_l.get_slist());
+        assert.deepEqual(sd_l.fromJson(ds_l).get_mlist(), sd_l.get_mlist());
     });
 
 

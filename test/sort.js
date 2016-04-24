@@ -17,10 +17,8 @@ describe("do_sort", function() {
 
 
     it("Добавляет приоритезированный список студентов - ментору", function() {
-        assert.deepEqual(srt.do_sort(mentors_list, lst), {'ментор_1': ['студент_1'], 'ментор_2': ['студент_3'], 'ментор_3': ['студент_2']});
+        assert.deepEqual(srt.do_sort(mentors_list, lst)['ментор_1'], ['студент_1', 'студент_4']);
+        assert.deepEqual(srt.do_sort(mentors_list, lst)['ментор_2'], ['студент_2']);
+        assert.deepEqual(srt.do_sort(mentors_list, lst)['ментор_3'], ['студент_3']);
     });
-
-
-
-
 });

@@ -77,9 +77,10 @@ var students = function(){
 
       var name;
       for (name in data.slist){
+
         if (typeof data.slist[name] !== 'function'){
           tmp.add_student(name);
-          tmp.add_rating(data.slist[name]);
+          tmp.add_rating(name, data.slist[name]);
         }
       }
 
@@ -103,7 +104,6 @@ var mentors = function(list){
   mntrs.fromJson = function(json){
     return JSON.parse(json);
   };
-
   return mntrs;
 };
 
